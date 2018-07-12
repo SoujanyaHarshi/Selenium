@@ -1,0 +1,51 @@
+Feature: Test facebook 
+Scenario: Test login
+
+	Given Open
+	And Login "<usern>" and "<password>"
+
+	|username|password|
+	|soujanya.mongolu@gmail.com|fbpassword16|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

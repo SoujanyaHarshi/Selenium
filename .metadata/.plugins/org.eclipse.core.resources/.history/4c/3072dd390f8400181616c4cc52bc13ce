@@ -1,0 +1,79 @@
+package CucumP;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+//import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import cucumber.api.Scenario;
+//import cucumber.annotation.en.Given;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.it.Data;
+import CucumP.ExcelDataConfig;
+
+public class Tools {
+	
+	WebDriver driver;
+	
+	@Before
+	
+	@Given("^Open$")
+	
+	public void Launch()
+	{
+		System.setProperty("webdriver.gecko.driver", "D:\\selenuim\\geckodriver.exe");
+		driver=new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get("http://facebook.com/");
+	}
+	
+	@Test(dataProvider="userlogin")
+	
+	@Given("^Login \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void login_and(String username, String password) throws Throwable {
+		driver.findElement(By.name("email")).sendKeys(ExcelDataConfig.get(username));
+		
+		driver.findElement(By.name("pass")).sendKeys(data.get(scenario.getName(), password));
+		driver.findElement(By.xpath("//input[@value='Log In']")).click();
+	    
+	} 
+	
+	/*@And("^Login \"username\" and \"password\"$")
+	public void login(String username,String password)
+	{
+		driver.findElement(By.name("email")).sendKeys(username);
+		driver.findElement(By.name("pass")).sendKeys(password);
+		driver.findElement(By.xpath("//input[@value='Log In']")).click();
+	}*/
+	
+	Scenario scenario;
+
+	@Before
+	public void before(Scenario scenario) {
+	    this.scenario = scenario;
+	}
+	
+	@DataProvider(name="userlogin")
+	public Object[][] loginData() throws IOException 
+	{
+		
+     	  ExcelDataConfig config=new ExcelDataConfig("D:\\selenuim\\logins.xlsx");
+		  int rows=config.getRowcount(0);
+		  Object[][] data = new Object[rows][2];
+		  for(int i=0;i<rows;i++)
+		  {
+		  data[i][0]=config.getData(0,i,0);
+		  data[i][1]=config.getData(0,i,1);
+		  }
+		  return data;
+	}	  
+}

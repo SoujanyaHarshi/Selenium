@@ -1,0 +1,50 @@
+package stepDef;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import dataprovider.configFileReader;
+import pageobjects.Objects;
+
+public class Def {
+
+WebDriver driver;
+configFileReader f;	
+	@Before
+	@Given("^Open browser$")
+	public void Launch()
+	{    f=new configFileReader();
+		System.setProperty("webdriver.gecko.driver", f.getDP());
+		driver=new FirefoxDriver();
+		driver.get(f.url());
+	}
+	
+	@Then("^wait$")
+	public void Waiting()
+	{
+		driver.manage().timeouts().implicitlyWait(f.getWait(), TimeUnit.SECONDS);
+	}
+	
+	@Test
+	@And("^Login$")
+	public void login()
+	{
+		//driver.findElement(By.name("email")).sendKeys("soujanya.mongolu@gmail.com");
+		//driver.findElement(By.name("pass")).sendKeys("fbpassword16");
+		//driver.findElement(By.xpath("//input[@value='Log In']")).click();
+		
+		driver.findElement(Objects.name).sendKeys("soujanya.mongolu@gmail.com");
+		driver.findElement(Objects.pswd).sendKeys("fbpassword16");
+		driver.findElement(Objects.btn).click();
+	}
+	
+}

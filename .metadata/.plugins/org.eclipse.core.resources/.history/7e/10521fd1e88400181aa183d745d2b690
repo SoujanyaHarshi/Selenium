@@ -1,0 +1,37 @@
+package dataprovider;
+
+import java.util.Properties;
+
+public class configFileReader {
+	public static Properties prop;
+	public final String propfilepath ="config//configure.properties";
+	
+	public static String getDP()
+	{
+		String dp=prop.getProperty("DriverPath");
+		return dp;
+	}
+	
+	public static long getWait()
+	{
+		String wait=prop.getProperty("implicitlyWait");
+		return 0;
+		}
+	
+	public String url()
+	{
+		String urlo=prop.getProperty("url");
+		return propfilepath;
+	}
+	
+	public String user() {
+		String user1=prop.getProperty("username");
+		return user1;
+	}
+	public String pswd() {
+		String pass=prop.getProperty("password");
+		return pass;
+	}	
+
+
+}

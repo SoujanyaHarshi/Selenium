@@ -1,0 +1,12 @@
+package dataprovider;
+
+import java.util.Properties;
+
+public class ConfigFile {
+	
+	public Properties prop;
+	public final String propfilepath ="config//configure.properties";
+	
+
+
+}

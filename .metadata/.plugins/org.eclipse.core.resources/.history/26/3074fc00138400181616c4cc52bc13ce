@@ -1,0 +1,55 @@
+Feature: Test facebook 
+Scenario: Test login
+
+	Given Open
+	
+	And Login "<username>" and "<password>"
+
+Examples:
+	
+	|username|password|
+	|soujanya.mongolu@gmail.com|fbpassword16|
+	|soujanya.mongolu@gmail.com|fbpassword16|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

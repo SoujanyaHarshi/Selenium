@@ -1,0 +1,57 @@
+Feature: Test facebook 
+Scenario Outline: Test login
+
+	Given Open
+	
+	And Login "<username>" and "<password>"
+	Then logout
+	
+Examples:
+	
+	|username|password|
+	|soujanya.mongolu@gmail.com|fbpassword16|
+	|soujanya.mongol@gmail.com|facebook16|
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

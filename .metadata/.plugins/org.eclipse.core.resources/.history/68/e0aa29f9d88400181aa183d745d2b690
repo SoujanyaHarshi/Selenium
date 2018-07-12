@@ -1,0 +1,22 @@
+package pageobjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+public class Objects {
+  
+	
+	public Objects(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+		
+	}
+	
+	@FindBy(how=How.NAME,using="email")
+	public static WebElement email;
+	
+	@FindBy(how=How.NAME,using="password")
+	public static WebElement pass;
+}

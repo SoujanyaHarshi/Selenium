@@ -1,0 +1,48 @@
+Feature: Test facebook 
+Scenario: Test login
+
+Given Open
+Given Login "usern" and "password"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

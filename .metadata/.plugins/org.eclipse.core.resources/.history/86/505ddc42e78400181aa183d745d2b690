@@ -1,0 +1,50 @@
+package stepDef;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import pageobjects.Objects;
+
+public class Def {
+
+WebDriver driver;
+	
+	@Before
+	@Given("^Open browser$")
+	public void Launch()
+	{   configFileReader f=new configFileReader;
+		System.setProperty("webdriver.gecko.driver", configFile.);
+		driver=new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get("http://facebook.com/");
+	}
+	
+	@Then("^wait$")
+	public void Waiting()
+	{
+		
+	}
+	
+	@Test
+	@And("^Login$")
+	public void login()
+	{
+		//driver.findElement(By.name("email")).sendKeys("soujanya.mongolu@gmail.com");
+		//driver.findElement(By.name("pass")).sendKeys("fbpassword16");
+		//driver.findElement(By.xpath("//input[@value='Log In']")).click();
+		
+		//driver.findElement(Objects.name).sendKeys("soujanya.mongolu@gmail.com");
+		//driver.findElement(Objects.pswd).sendKeys("fbpassword16");
+		//driver.findElement(Objects.btn).click();
+	}
+	
+}

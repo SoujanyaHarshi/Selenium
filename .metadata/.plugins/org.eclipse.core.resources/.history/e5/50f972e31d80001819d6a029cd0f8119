@@ -1,0 +1,26 @@
+Feature: Test facebook 
+Scenario: Test login
+
+Given Open browser
+
+
+
+
+
+
+
+
+
+And Login "username" "password"
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+package CucumP;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.testng.annotations.BeforeClass;
+//import org.testng.annotations.Test;
+
+//import cucumber.annotation.en.Given;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+
+public class Tools {
+
+	WebDriver driver;
+	
+	@Before
+	
+	@Given("^Open browser$")
+	
+	public void Launch()
+	{
+		System.setProperty("webdriver.gecko.driver", "D:\\selenuim\\geckodriver.exe");
+		driver=new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get("http://facebook.com/");
+	}
+	
+	@Test
+	
+	@And("^Login$")
+	public void login()
+	{
+		driver.findElement(By.name("email")).sendKeys("soujanya.mongolu@gmail.com");
+		driver.findElement(By.name("pass")).sendKeys("fbpassword16");
+		driver.findElement(By.xpath("//input[@value='Log In']")).click();
+	}
+}

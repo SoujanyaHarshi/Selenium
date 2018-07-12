@@ -1,0 +1,24 @@
+Feature: Test facebook 
+Scenario: Test login
+
+Given Open browser
+
+
+
+
+
+
+
+And Login
+
+
+
+
+
+
+
+
+
+
+
+
